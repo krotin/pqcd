@@ -4,19 +4,35 @@
   <meta charset="UTF-8">
   <title>Projet Patrick</title>
   <style>
-    body { margin:0; background:black; }
-    video { width:100%; height:100vh; object-fit:cover; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: black;
+    }
+    video {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      display: block;
+    }
   </style>
 </head>
 <body>
-  <video id="video" autoplay muted playsinline loop>
+  <video autoplay muted playsinline loop preload="auto">
+    <!-- Version WebM prioritaire -->
+    <source src="patrick.webm" type="video/webm">
+    <!-- Fallback MP4 -->
     <source src="patrick.mp4" type="video/mp4">
     Votre navigateur ne supporte pas la lecture vidéo.
   </video>
+
   <script>
-    const video = document.getElementById('video');
+    const video = document.querySelector('video');
     video.play().catch(() => {
-      console.log("La vidéo n'a pas pu démarrer automatiquement.");
+      console.log("Autoplay bloqué, la vidéo est en mode muted pour tenter de démarrer.");
+      video.muted = true;
+      video.play();
     });
   </script>
 </body>
