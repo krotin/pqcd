@@ -17,39 +17,39 @@
       object-fit: cover;
       display: block;
     }
-    /* Overlay pour activer le son */
+    /* Overlay avec image */
     #overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(0,0,0,0.3);
+      background: url('Album-ete-2025.jpg') no-repeat center center;
+      background-size: cover;
       display: flex;
       justify-content: center;
       align-items: center;
       color: white;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 5px black;
       cursor: pointer;
-      transition: background 0.3s;
       z-index: 10;
     }
     #overlay:hover {
-      background: rgba(0,0,0,0.5);
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
   <video id="video" autoplay muted playsinline loop preload="auto">
-    <!-- Version WebM prioritaire -->
     <source src="patrick.webm" type="video/webm">
-    <!-- Fallback MP4 -->
     <source src="patrick.mp4" type="video/mp4">
     Votre navigateur ne supporte pas la lecture vidéo.
   </video>
 
-  <!-- Overlay pour activer le son -->
-  <div id="overlay">Cliquez pour activer le son</div>
+  <!-- Overlay image + texte -->
+  <div id="overlay">Cliquez pour accéder à l'album</div>
 
   <script>
     const video = document.getElementById('video');
