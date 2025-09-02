@@ -9,14 +9,14 @@
   </style>
 </head>
 <body>
-  <video id="video" autoplay playsinline>
+  <video id="video" autoplay muted playsinline loop>
     <source src="patrick.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture vidéo.
   </video>
   <script>
     const video = document.getElementById('video');
     video.play().catch(() => {
-      video.muted = true;
-      video.play();
+      console.log("La vidéo n'a pas pu démarrer automatiquement.");
     });
   </script>
 </body>
